@@ -217,6 +217,7 @@ export default function Home() {
   const [step, setStep] = useState(0);
   const [mode, setMode] = useState<'NEVER' | 'MID' | 'PRO' | null>(null);
   const [secondsLeft, setSecondsLeft] = useState(RESET_SECONDS);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [scores, setScores] = useState<ScoreMap>({
     AGG: 0,
     CTRL: 0,
@@ -234,6 +235,7 @@ export default function Home() {
     setStep(0);
     setMode(null);
     setSecondsLeft(RESET_SECONDS);
+    setSelectedIndex(null);
     setScores({
       AGG: 0,
       CTRL: 0,
@@ -295,6 +297,17 @@ export default function Home() {
     } else {
       setStep(step + 1);
     }
+  }
+
+  function handleAnswer(option: { text: string; scores: Partial<ScoreMap> }, index: number) {
+    if (selectedIndex !== null) return;
+
+    setSelectedIndex(index);
+
+    setTimeout(() => {
+      setSelectedIndex(null);
+      addScore(option);
+    }, 200);
   }
 
   function getResult(): ProfileType {
@@ -379,7 +392,7 @@ export default function Home() {
               ].map((deck) => (
                 <div
                   key={deck}
-                  className="text-lg font-semibold text-zinc-300 text-center cursor-default select-none"
+                  className="text-xl font-semibold text-zinc-300 text-center cursor-default select-none"
                 >
                   {deck}
                 </div>
@@ -460,7 +473,7 @@ export default function Home() {
                     setMode(item.value);
                     setScreen('quiz');
                   }}
-                  className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center text-lg font-bold active:scale-95 transition hover:bg-white/10 hover:border-yellow-300/40 hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center min-h-[96px]"
+                  className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center text-lg font-bold active:scale-95 transition hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] flex items-center justify-center min-h-[96px]"
                 >
                   {item.label}
                 </button>
@@ -494,8 +507,17 @@ export default function Home() {
                 {questions[step].options.map((option, index) => (
                   <button
                     key={`${step}-${index}`}
-                    onClick={() => addScore(option)}
-                    className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-yellow-300/40 p-6 text-center text-lg font-bold min-h-[96px] active:scale-95 transition hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center w-full whitespace-normal"
+                    onClick={() => handleAnswer(option, index)}
+                    disabled={selectedIndex !== null}
+                    className={`
+                      rounded-2xl border border-white/10 p-6 text-center text-lg font-bold min-h-[96px]
+                      transition active:scale-95 flex items-center justify-center w-full whitespace-normal
+                      ${
+                        selectedIndex === index
+                          ? 'bg-yellow-300 text-zinc-950 scale-95'
+                          : 'bg-white/5 hover:bg-white/10 hover:border-white/20'
+                      }
+                    `}
                   >
                     <span className="block w-full text-center">{option.text}</span>
                   </button>
@@ -577,7 +599,7 @@ export default function Home() {
 
                   <button
                     onClick={restart}
-                    className="mt-8 rounded-full border border-white/20 px-8 py-3 text-sm font-bold text-zinc-300 active:scale-95 transition hover:border-yellow-300/40 hover:text-yellow-300 hover:shadow-lg hover:shadow-yellow-300/10"
+                    className="mt-8 rounded-full border border-white/20 px-8 py-3 text-sm font-bold text-zinc-300 active:scale-95 transition hover:border-white/30 hover:text-white"
                   >
                     Reiniciar experiência
                   </button>
