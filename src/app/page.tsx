@@ -319,7 +319,7 @@ export default function Home() {
 
               <div>
                 <p className="text-xs tracking-[0.35em] text-yellow-300 font-semibold">
-                  EXPERIÊNCIA SURICATO
+                  SURICATO EXPERIENCE
                 </p>
                 <h1 className="text-xl font-bold">Descubra seu Deck</h1>
               </div>
@@ -369,7 +369,7 @@ export default function Home() {
               Cada deck tem um estilo diferente de jogo.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+            <div className="flex flex-col gap-3 mt-10 max-w-xl mx-auto">
               {[
                 'Mega Lucario Ex',
                 'Grimmsnarl Ex + Froslass',
@@ -379,7 +379,7 @@ export default function Home() {
               ].map((deck) => (
                 <div
                   key={deck}
-                  className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 text-lg font-bold text-center flex items-center justify-center min-h-[78px] cursor-default select-none"
+                  className="text-lg font-semibold text-zinc-300 text-center cursor-default select-none"
                 >
                   {deck}
                 </div>
@@ -460,7 +460,7 @@ export default function Home() {
                     setMode(item.value);
                     setScreen('quiz');
                   }}
-                  className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center text-lg font-bold active:scale-95 transition hover:bg-yellow-300 hover:text-zinc-950 hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center min-h-[96px]"
+                  className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center text-lg font-bold active:scale-95 transition hover:bg-white/10 hover:border-yellow-300/40 hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center min-h-[96px]"
                 >
                   {item.label}
                 </button>
@@ -493,9 +493,9 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 w-full max-w-4xl">
                 {questions[step].options.map((option, index) => (
                   <button
-                    key={index}
+                    key={`${step}-${index}`}
                     onClick={() => addScore(option)}
-                    className="rounded-2xl border border-white/10 bg-white/5 hover:bg-yellow-300 hover:text-zinc-950 p-6 text-center text-lg font-bold min-h-[96px] active:scale-95 transition hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center w-full whitespace-normal"
+                    className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-yellow-300/40 p-6 text-center text-lg font-bold min-h-[96px] active:scale-95 transition hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-300/20 flex items-center justify-center w-full whitespace-normal"
                   >
                     <span className="block w-full text-center">{option.text}</span>
                   </button>
