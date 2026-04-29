@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset básico leve - Tailwind Preflight gerencia o resto */
+* {
+  box-sizing: border-box;
+}
+
+/* Variáveis CSS para cores temáticas Pokémon */
+:root {
+  --cor-pokemon-vermelho: #FF5722; /* Inspirado no Charmander */
+  --cor-pokemon-azul: #2196F3;     /* Inspirado no Squirtle */
+  --cor-pokemon-amarelo: #FFCC00;  /* Inspirado no Pikachu */
+}
+
+/* Estilos globais */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

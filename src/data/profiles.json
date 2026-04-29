@@ -1,0 +1,49 @@
+{
+    "perfis": [
+      {
+        "sigla": "AGG",
+        "nomeCompleto": "Agressor Implacável",
+        "descricaoPersonalidade": "Você é impulsivo e adora ação rápida, sem paciência para jogos longos. Sempre busca a vitória direta e avassaladora, ignorando defesas elaboradas. Sua energia contagia todos ao redor.",
+        "estiloJogo": "Joga de forma agressiva, atacando rápido para esmagar o oponente antes que ele se organize.",
+        "deckRecomendado": "Charizard ex Turbo",
+        "descricaoDeck": "Deck focado em ataques rápidos e poderosos com Charizard ex, usando energias aceleradas para dano massivo desde o início.",
+        "imagem": "agg_icon.png"
+      },
+      {
+        "sigla": "CTRL",
+        "nomeCompleto": "Controlador Estratégico",
+        "descricaoPersonalidade": "Você planeja cada movimento com precisão, mantendo o controle total da situação. Prefere desgastar o inimigo aos poucos do que arriscar tudo de uma vez. Sua calma sob pressão é lendária.",
+        "estiloJogo": "Controla o ritmo do jogo, negando recursos ao oponente e sobrevivendo até a vitória inevitável.",
+        "deckRecomendado": "Dragapult ex Stall",
+        "descricaoDeck": "Utiliza Dragapult ex para remoções constantes e bloqueios, mantendo o board limpo enquanto acumula vantagens.",
+        "imagem": "ctrl_icon.png"
+      },
+      {
+        "sigla": "TACT",
+        "nomeCompleto": "Tático Calculista",
+        "descricaoPersonalidade": "Você analisa todas as possibilidades antes de agir, sempre um passo à frente. Gosta de manobras inteligentes e adaptações no momento certo. Sua mente estratégica é sua maior arma.",
+        "estiloJogo": "Equilibra agressão e defesa com jogadas precisas e trocas favoráveis.",
+        "deckRecomendado": "Gardevoir ex Midrange",
+        "descricaoDeck": "Deck versátil com Gardevoir ex para aceleração de energia e remoções táticas, dominando o midgame.",
+        "imagem": "tact_icon.png"
+      },
+      {
+        "sigla": "ADAPT",
+        "nomeCompleto": "Adaptável Versátil",
+        "descricaoPersonalidade": "Você se ajusta a qualquer situação com facilidade, mudando de tática conforme necessário. Valoriza a flexibilidade acima de tudo e surpreende com imprevisibilidade. Nada te pega desprevenido.",
+        "estiloJogo": "Adapta o plano de jogo dinamicamente ao deck do oponente e às circunstâncias.",
+        "deckRecomendado": "Lugia VSTAR Flex",
+        "descricaoDeck": "Deck com múltiplas linhas de vitória e respostas para qualquer ameaça, usando Lugia VSTAR para versatilidade.",
+        "imagem": "adapt_icon.png"
+      },
+      {
+        "sigla": "ENG",
+        "nomeCompleto": "Engenheiro de Combos",
+        "descricaoPersonalidade": "Você constrói setups complexos e sinergias incríveis, adorando ver tudo funcionar em perfeita harmonia. Paciência para montagens longas é sua marca, com explosões épicas no final. Criatividade define você.",
+        "estiloJogo": "Constrói engines poderosas para combos devastadores no late game.",
+        "deckRecomendado": "Terapagos ex Ramp",
+        "descricaoDeck": "Acumula recursos com Terapagos ex para um final de jogo explosivo, com sinergias de energia e draw power.",
+        "imagem": "eng_icon.png"
+      }
+    ]
+  }

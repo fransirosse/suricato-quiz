@@ -1,0 +1,351 @@
+{
+    "quiz": {
+      "nome": "Pokémon TCG Suricato",
+      "levelQuestion": {
+        "id": 1,
+        "text": "Qual é o seu nível de experiência com Pokémon TCG?",
+        "options": [
+          {
+            "text": "Nunca joguei",
+            "level": "nuncaJoguei"
+          },
+          {
+            "text": "Joguei poucas vezes",
+            "level": "iniciante"
+          },
+          {
+            "text": "Jogo ocasionalmente",
+            "level": "intermediario"
+          },
+          {
+            "text": "Jogo com frequência",
+            "level": "avancado"
+          }
+        ]
+      },
+      "baseQuestions": [
+        {
+          "id": 2,
+          "text": "Ao montar seu deck, qual é sua prioridade principal?",
+          "options": [
+            {
+              "text": "Incluir o máximo de ataques poderosos e rápidos",
+              "scores": {"AGG": 3, "CTRL": 0, "TACT": 1, "ADAPT": 0, "ENG": 1}
+            },
+            {
+              "text": "Controlar o campo do oponente com remoções e stalls",
+              "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+            },
+            {
+              "text": "Criar sinergias e combos complexos entre cartas",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 2, "ENG": 1}
+            },
+            {
+              "text": "Ter flexibilidade para se adaptar a qualquer matchup",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+            },
+            {
+              "text": "Priorizar cartas divertidas e criativas, mesmo que arriscadas",
+              "scores": {"AGG": 1, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 3}
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Durante uma partida apertada, você prefere:",
+          "options": [
+            {
+              "text": "Atacar agressivamente para tentar fechar o jogo rápido",
+              "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 2}
+            },
+            {
+              "text": "Manter o controle do board e esperar o erro do oponente",
+              "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+            },
+            {
+              "text": "Executar uma estratégia tática precisa passo a passo",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 1}
+            },
+            {
+              "text": "Mudar de plano conforme a situação evolui",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+            },
+            {
+              "text": "Testar jogadas criativas e inesperadas",
+              "scores": {"AGG": 2, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Se seu plano principal falha, você:",
+          "options": [
+            {
+              "text": "Força uma estratégia agressiva alternativa",
+              "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 2, "ENG": 1}
+            },
+            {
+              "text": "Recupera o controle e estabiliza a partida",
+              "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+            },
+            {
+              "text": "Calcula uma nova tática baseada no board atual",
+              "scores": {"AGG": 0, "CTRL": 2, "TACT": 3, "ADAPT": 2, "ENG": 0}
+            },
+            {
+              "text": "Se adapta rapidamente ao que está acontecendo",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+            },
+            {
+              "text": "Inventa algo novo e divertido para virar",
+              "scores": {"AGG": 1, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "O que mais te motiva em uma vitória no Pokémon TCG?",
+          "options": [
+            {
+              "text": "Dominação total e rápida do oponente",
+              "scores": {"AGG": 3, "CTRL": 0, "TACT": 1, "ADAPT": 0, "ENG": 2}
+            },
+            {
+              "text": "Manter o controle absoluto da partida",
+              "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 0, "ENG": 1}
+            },
+            {
+              "text": "Execução perfeita de uma estratégia brilhante",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 1}
+            },
+            {
+              "text": "Virar uma partida improvável com adaptação",
+              "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+            },
+            {
+              "text": "Momentos épicos e criativos inesquecíveis",
+              "scores": {"AGG": 2, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+            }
+          ]
+        }
+      ],
+      "adaptiveQuestions": {
+        "nuncaJoguei": [
+          {
+            "id": 6,
+            "text": "Se você fosse jogar Pokémon TCG pela primeira vez, o que te atrairia mais?",
+            "options": [
+              {
+                "text": "Batalhas rápidas e explosivas",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 2}
+              },
+              {
+                "text": "Controlar todos os Pokémon do oponente",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 1, "ADAPT": 0, "ENG": 1}
+              },
+              {
+                "text": "Planejar estratégias como um mestre",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Se adaptar a qualquer situação maluca",
+                "scores": {"AGG": 1, "CTRL": 0, "TACT": 1, "ADAPT": 3, "ENG": 2}
+              },
+              {
+                "text": "Criar decks super divertidos e únicos",
+                "scores": {"AGG": 2, "CTRL": 0, "TACT": 0, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "text": "Qual Pokémon inicial você escolheria baseado no estilo?",
+            "options": [
+              {
+                "text": "Charmander (fogo e ataques fortes)",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 1, "ADAPT": 0, "ENG": 1}
+              },
+              {
+                "text": "Squirtle (defesa e controle de água)",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Bulbasaur (sinergias com veneno e status)",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Qualquer um, dependendo do deck",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+              },
+              {
+                "text": "O mais fofo ou engraçado",
+                "scores": {"AGG": 1, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 3}
+              }
+            ]
+          }
+        ],
+        "iniciante": [
+          {
+            "id": 6,
+            "text": "No início da partida, você prioriza:",
+            "options": [
+              {
+                "text": "Energizar e atacar logo",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Configurar defesas e trainers de controle",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 1, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Preparar setups para combos",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 0, "ENG": 1}
+              },
+              {
+                "text": "Ver o que o oponente faz primeiro",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 1}
+              },
+              {
+                "text": "Testar cartas novas que eu trouxe",
+                "scores": {"AGG": 1, "CTRL": 0, "TACT": 0, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "text": "Contra um deck desconhecido, você:",
+            "options": [
+              {
+                "text": "Ataca sem piedade para testar",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 2}
+              },
+              {
+                "text": "Joga safe para descobrir as fraquezas",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Analisa padrões e planeja counters",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 3, "ADAPT": 2, "ENG": 0}
+              },
+              {
+                "text": "Muda estratégia conforme aprendo",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 1}
+              },
+              {
+                "text": "Divi rte-se descobrindo",
+                "scores": {"AGG": 1, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          }
+        ],
+        "intermediario": [
+          {
+            "id": 6,
+            "text": "Em mid-game, seu foco é:",
+            "options": [
+              {
+                "text": "Manter pressão agressiva constante",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 1, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Disruptar setups do oponente",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Executar o core da minha tática",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Pivotar para o que está funcionando",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+              },
+              {
+                "text": "Surpreender com techs criativas",
+                "scores": {"AGG": 2, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "text": "Como você gerencia recursos (energia, trainers)?",
+            "options": [
+              {
+                "text": "Gasta tudo em ataques potentes",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 0, "ENG": 2}
+              },
+              {
+                "text": "Raciona para controle prolongado",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Otimiza para eficiência tática",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Realo ca e redistribui conforme necessidade",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 2, "ADAPT": 3, "ENG": 1}
+              },
+              {
+                "text": "Experimenta usos não convencionais",
+                "scores": {"AGG": 1, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          }
+        ],
+        "avancado": [
+          {
+            "id": 6,
+            "text": "Em torneios, você ajusta decks por:",
+            "options": [
+              {
+                "text": "Meta agressivo dominante",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 1, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Counters de controle para o meta",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Análise profunda do metagame",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 3, "ADAPT": 2, "ENG": 0}
+              },
+              {
+                "text": "Versatilidade total contra qualquer deck",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+              },
+              {
+                "text": "Inovações e archetypes rogue",
+                "scores": {"AGG": 2, "CTRL": 0, "TACT": 1, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "text": "No late game, sua decisão é guiada por:",
+            "options": [
+              {
+                "text": "All-in no dano bruto",
+                "scores": {"AGG": 3, "CTRL": 0, "TACT": 0, "ADAPT": 1, "ENG": 1}
+              },
+              {
+                "text": "Lockdown total do oponente",
+                "scores": {"AGG": 0, "CTRL": 3, "TACT": 2, "ADAPT": 0, "ENG": 0}
+              },
+              {
+                "text": "Cálculo exato de probabilidades",
+                "scores": {"AGG": 0, "CTRL": 1, "TACT": 3, "ADAPT": 1, "ENG": 0}
+              },
+              {
+                "text": "Explorar qualquer brecha possível",
+                "scores": {"AGG": 1, "CTRL": 1, "TACT": 1, "ADAPT": 3, "ENG": 2}
+              },
+              {
+                "text": "Jogada legendária para a história",
+                "scores": {"AGG": 2, "CTRL": 0, "TACT": 2, "ADAPT": 2, "ENG": 3}
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }

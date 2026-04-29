@@ -1,0 +1,208 @@
+import { create } from 'zustand';
+
+type ExperienceLevel = 'nuncaJoguei' | 'iniciante' | 'intermediario' | 'avancado';
+type ScoreCategory = 'AGG' | 'CTRL' | 'TACT' | 'ADAPT' | 'ENG';
+
+interface TotalScores {
+  [K in ScoreCategory]: number;
+}
+
+interface Question {
+  id: number;
+  question: string;
+  options: string[];
+  scoreMap: Record<number, Partial<TotalScores>>;
+}
+
+interface QuizState {
+  currentQuestion: number;
+  experienceLevel: ExperienceLevel;
+  userAnswers: number[];
+  totalScores: TotalScores;
+  resultProfile: string;
+}
+
+interface QuizActions {
+  setExperienceLevel: (level: ExperienceLevel) => void;
+  recordAnswer: (answerIndex: number) => void;
+  goToNextQuestion: () => void;
+  calculateResult: () => void;
+  resetQuiz: () => void;
+  getCurrentQuestion: () => Question;
+}
+
+type Store = QuizState & QuizActions;
+
+const questions: Question[] = [
+  {
+    id: 0,
+    question: "Qual é a sua abordagem inicial em uma partida de Pokémon TCG?",
+    options: [
+      "Ataque agressivo para pressionar o oponente",
+      "Construir uma defesa sólida e controlar o board",
+      "Analisar o oponente e adaptar minha estratégia"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { CTRL: 1 },
+      2: { ADAPT: 1 }
+    }
+  },
+  {
+    id: 1,
+    question: "Como você gerencia seus recursos (energias e cartas)?",
+    options: [
+      "Gasto tudo rapidamente para atacar",
+      "Planejo cuidadosamente os turnos",
+      "Crio combos engenhosos"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { TACT: 1 },
+      2: { ENG: 1 }
+    }
+  },
+  {
+    id: 2,
+    question: "Enfrentando um deck desconhecido, você:",
+    options: [
+      "Improvisei ataques rápidos",
+      "Controle as ameaças principais",
+      "Adapto minha estratégia dinamicamente"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { CTRL: 1 },
+      2: { ADAPT: 1 }
+    }
+  },
+  {
+    id: 3,
+    question: "Seu foco principal é:",
+    options: [
+      "Win condition agressiva",
+      "Controle total do jogo",
+      "Táticas flexíveis"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { CTRL: 1 },
+      2: { TACT: 1 }
+    }
+  },
+  {
+    id: 4,
+    question: "Quando o oponente comete erros:",
+    options: [
+      "Aproveito para atacar forte",
+      "Neutralizo suas ameaças",
+      "Adapto meu plano para maximizar"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { CTRL: 1 },
+      2: { ADAPT: 1 }
+    }
+  },
+  {
+    id: 5,
+    question: "No final do jogo, você:",
+    options: [
+      "Push o dano restante",
+      "Controle até a fadiga do oponente",
+      "Engenharia uma wincon alternativa"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { CTRL: 1 },
+      2: { ENG: 1 }
+    }
+  },
+  {
+    id: 6,
+    question: "Seu estilo geral de jogo é:",
+    options: [
+      "Agressivo e direto",
+      "Tático e paciente",
+      "Adaptável e criativo"
+    ],
+    scoreMap: {
+      0: { AGG: 1 },
+      1: { TACT: 1 },
+      2: { ADAPT: 1 }
+    }
+  }
+];
+
+const useQuizStore = create<Store>((set, get) => ({
+  // Estado inicial
+  currentQuestion: 0,
+  experienceLevel: 'nuncaJoguei',
+  userAnswers: [],
+  totalScores: { AGG: 0, CTRL: 0, TACT: 0, ADAPT: 0, ENG: 0 },
+  resultProfile: '',
+
+  // Ação para definir o nível de experiência
+  setExperienceLevel: (level: ExperienceLevel) => {
+    set({ experienceLevel: level });
+  },
+
+  // Registra a resposta do usuário e atualiza as pontuações
+  recordAnswer: (answerIndex: number) => {
+    const state = get();
+    const currentQ = questions[state.currentQuestion];
+    const scoreDelta = currentQ.scoreMap[answerIndex] || {};
+    const newTotalScores = { ...state.totalScores };
+
+    Object.entries(scoreDelta).forEach(([cat, points]) => {
+      const category = cat as ScoreCategory;
+      newTotalScores[category] += points;
+    });
+
+    const newUserAnswers = [...state.userAnswers, answerIndex];
+
+    set({
+      userAnswers: newUserAnswers,
+      totalScores: newTotalScores,
+    });
+  },
+
+  // Avança para a próxima pergunta (máximo 6)
+  goToNextQuestion: () => {
+    const state = get();
+    if (state.currentQuestion < 6) {
+      set({ currentQuestion: state.currentQuestion + 1 });
+    }
+  },
+
+  // Calcula o perfil de resultado baseado nas pontuações máximas
+  calculateResult: () => {
+    const state = get();
+    const scores = state.totalScores;
+    const maxVal = Math.max(...Object.values(scores));
+    const maxCats: ScoreCategory[] = Object.entries(scores)
+      .filter(([, score]) => score === maxVal)
+      .map(([cat]) => cat as ScoreCategory);
+    const profile = `${maxCats.join(' / ')} - Nível: ${state.experienceLevel}`;
+    set({ resultProfile: profile });
+  },
+
+  // Reinicia o quiz para o estado inicial
+  resetQuiz: () => {
+    set({
+      currentQuestion: 0,
+      experienceLevel: 'nuncaJoguei',
+      userAnswers: [],
+      totalScores: { AGG: 0, CTRL: 0, TACT: 0, ADAPT: 0, ENG: 0 },
+      resultProfile: '',
+    });
+  },
+
+  // Getter para a pergunta atual do JSON (array de perguntas)
+  getCurrentQuestion: () => {
+    const state = get();
+    return questions[state.currentQuestion];
+  },
+}));
+
+export { useQuizStore };
